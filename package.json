@@ -1,0 +1,17 @@
+{
+  "name": "webflow-cms-delete",
+  "version": "1.0.0",
+  "description": "A script to reset reference fields in a webflow collection and delete all items in it.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Hari Kshore",
+  "license": "MIT",
+  "private": null,
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }, 
+  "type": "module"
+}
