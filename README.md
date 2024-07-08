@@ -41,11 +41,13 @@ npm start
 First, get an API key for your Webflow site.
 
 1. Go to your Webflow Dashboard.
-2. Click the three dots on a Webflow site.
+2. Click the three dots on the desired Webflow site.
 3. Click "Settings".
 4. Click "Apps & Integrations".
-5. Click "Generate Legacy API Token". (Important: make sure to pick the legacy API token)
-6. Copy the API token and store it somewhere safe for later.
+5. Click "Generate API Token". (Important: make sure to pick the v2 API token, the blue button).
+6. Under the "Generate API Token" dialog, give a name and grant "read and write" permissions for CMS & Sites.
+7. Click "Generate Token"
+8. Copy the API token and store it somewhere safe for later.
 
 Get the Collection Ids of the collection to be de-referenced.
 
