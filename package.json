@@ -1,7 +1,7 @@
 {
-  "name": "webflow-cms-delete",
+  "name": "webflow-collection-dereferencer",
   "version": "1.0.0",
-  "description": "A script to reset reference fields in a webflow collection and delete all items in it.",
+  "description": "A script to de-reference all reference/multi-reference fields in given webflow collections.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
