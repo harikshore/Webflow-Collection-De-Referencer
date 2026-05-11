@@ -1,7 +1,49 @@
 import fetch from 'node-fetch';
 import readline from 'readline';
 
-// Helper function to fetch data from Webflow API
+async function withRetry(fn, { maxRetries = 5, baseDelayMs = 1000 } = {}) {
+  let attempt = 0;
+
+  while (true) {
+    const { response, data } = await fn();
+
+    if (response.status < 400)  {
+      console.log(`  → ${response.status}`);
+      return data;
+    }
+
+    if (response.status === 429) {
+      if (attempt >= maxRetries) {
+        throw new Error(`Rate limit persists after ${maxRetries} retries. Giving up.`);
+      }
+      const retryAfter = response.headers.get('retry-after');
+      const waitMs = retryAfter ? parseFloat(retryAfter) * 1000 : Math.min(60000, baseDelayMs * 2 ** attempt);
+      console.warn(`⚠ Rate limited. Waiting ${(waitMs / 1000).toFixed(1)}s before retry (attempt ${attempt + 1}/${maxRetries})...`);
+      await sleep(waitMs);
+      attempt++;
+      continue;
+    }
+
+    if (response.status >= 500) {
+      if (attempt >= maxRetries) {
+        throw new Error(`Server error ${response.status} persists after ${maxRetries} retries.`);
+      }
+      const waitMs = baseDelayMs * 2 ** attempt;
+      console.warn(`⚠ Server error ${response.status}. Retrying in ${(waitMs / 1000).toFixed(1)}s (attempt ${attempt + 1}/${maxRetries})...`);
+      await sleep(waitMs);
+      attempt++;
+      continue;
+    }
+
+    // Non-retryable error (4xx excluding 429)
+    throw new Error(`API error ${response.status}: ${JSON.stringify(data)}`);
+  }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchWebflowAPI(url, method = 'GET', body = null, token) {
   const headers = {
     'authorization': `Bearer ${token}`,
@@ -13,11 +55,13 @@ async function fetchWebflowAPI(url, method = 'GET', body = null, token) {
   const options = { method, headers };
   if (body) options.body = JSON.stringify(body);
 
-  const response = await fetch(url, options);
-  return response.json();
+  return withRetry(async () => {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return { response, data };
+  });
 }
 
-// Action 1: Get Collection Details and identify reference fields
 async function getCollectionDetails(collectionId, token) {
   const url = `https://api.webflow.com/v2/collections/${collectionId}`;
   const collection = await fetchWebflowAPI(url, undefined, undefined, token);
@@ -26,7 +70,6 @@ async function getCollectionDetails(collectionId, token) {
     .map(field => ({ type: field.type, slug: field.slug }));
 }
 
-// Action 2: List all collection items
 async function listCollectionItems(collectionId, token) {
   let items = [];
   let offset = 0;
@@ -43,16 +86,15 @@ async function listCollectionItems(collectionId, token) {
   return items;
 }
 
-// Action 3: Update collection items
 async function updateCollectionItems(collectionId, items, referenceFields, token) {
   for (const item of items) {
     const updates = {};
 
     referenceFields.forEach(field => {
       if (field.type === 'Reference') {
-        updates[field.slug] = '';  // Set Reference fields to empty string
+        updates[field.slug] = '';
       } else if (field.type === 'MultiReference') {
-        updates[field.slug] = [];  // Set Multi-Reference fields to empty array
+        updates[field.slug] = [];
       }
     });
 
@@ -62,7 +104,6 @@ async function updateCollectionItems(collectionId, items, referenceFields, token
   }
 }
 
-// Main function to run the script
 async function run() {
   const rl = readline.createInterface({
     input: process.stdin,
