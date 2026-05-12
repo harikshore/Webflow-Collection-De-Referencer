@@ -16,30 +16,30 @@ This simple script helps you de-reference all reference/multi-reference fields i
 
 ### Installation
 
-Clone this repository, then run: 
-
-```bash
-yarn install
-```
-
-Or if you prefer to use npm, you can run: 
+1. Clone this repository,
+2. Open the repository folder in a code editor like VS Code.
+3. then run:
 
 ```
 npm install
 ```
+Or if you prefer to use yarn, you can run:
+
+```bash
+yarn install
+``` 
 
 ### Running the tool
 
-Finally run: 
-
-```
-yarn start
-```
-
-Or 
+1. Run:
 
 ```
 npm start
+```
+Or
+
+```
+yarn start
 ```
 
 ### Commands 
@@ -86,3 +86,6 @@ After de-referencing is complete, you can go into each collection and delete ite
 ## Updates
 ### v1.0.1
 - Fixed crashes on large collections by adding automatic rate limit handling.
+
+# Follow the creator
+Twitter - https://x.com/harikshore15
