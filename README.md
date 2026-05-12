@@ -8,6 +8,10 @@ Deleting webflow collection items that have reference/multi-reference fields is 
 
 This simple script helps you de-reference all reference/multi-reference fields in given webflow collections after which you can easily delete bulk items from these collections.
 
+## ⚠️ Before You Begin: Create a Site Backup
+
+**Always back up your Webflow site before running this tool.** This script makes bulk changes to your CMS data that cannot be automatically undone. A backup ensures you can restore your content if something goes wrong.
+
 ## Usage 
 
 ### Installation
@@ -23,6 +27,8 @@ Or if you prefer to use npm, you can run:
 ```
 npm install
 ```
+
+### Running the tool
 
 Finally run: 
 
@@ -55,7 +61,7 @@ Get the Collection Ids of the collection to be de-referenced.
 2. Open the Collection settings of the collection and copy the collection id. 
 3. Copy the collection ids of all the collections you want to de-reference and store it somewhere for later.
 
-After `yarn start` successful,
+After the tool is running successfully,
 
 Input the API Key where it says: 
 ```
