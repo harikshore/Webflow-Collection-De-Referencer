@@ -89,3 +89,4 @@ After de-referencing is complete, you can go into each collection and delete ite
 
 # Follow the creator
 Twitter - https://x.com/harikshore15
+Email - harikshoresridharan@gmail.com
