@@ -10,7 +10,6 @@
   "license": "MIT",
   "private": null,
   "dependencies": {
-    "express": "^4.19.2",
     "node-fetch": "^3.3.2"
   }, 
   "type": "module"
