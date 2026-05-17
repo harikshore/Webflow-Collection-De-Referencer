@@ -89,7 +89,9 @@ After de-referencing is complete, you can go into each collection and delete ite
 - Fixed crashes on large collections by adding automatic rate limit handling.
 
 ### Planned
-- Handle de-referencing items in different cms locales. 
+- Handle de-referencing items in different cms locales.
+- Batch update of collection items instead of individual item update
+- Add devlog.md
 
 # Follow the creator
 Twitter - https://x.com/harikshore15,
