@@ -84,8 +84,12 @@ Sit back and relax while the script processes each collection and de-references 
 After de-referencing is complete, you can go into each collection and delete items 100 by 100 at a time if you want. And publish your site in the designer. This is very easier and time saving.
 
 ## Updates
-### v1.0.5
+### Released
+#### v1.0.5
 - Fixed crashes on large collections by adding automatic rate limit handling.
+
+### Planned
+- Handle de-referencing items in different cms locales. 
 
 # Follow the creator
 Twitter - https://x.com/harikshore15,
