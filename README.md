@@ -1,3 +1,5 @@
+![Product Logo](https://github.com/harikshore/Webflow-Collection-De-Referencer/blob/33111fd734991c58e679d432f5e1dba0e916f5ab/CollectionDeReferencer.png)
+
 # Webflow Collection De-Referencer
 
 This simple script helps you de-reference all reference/multi-reference fields in given webflow collections after which you can easily delete bulk items from them.
