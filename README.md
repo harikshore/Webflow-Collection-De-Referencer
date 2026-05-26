@@ -92,7 +92,7 @@ After de-referencing is complete, you can go into each collection and delete ite
 
 #### v1.1.0
 - Handle de-referencing items in different cms locales.
-- Batch update of collection items instead of individual item updates. Avoids hitting rate-limits frequently for Starter/Basic plans.
+- Batch update of collection items instead of individual item updates to process faster and to avoid hitting rate-limits frequently for Starter/Basic plans on large collections.
 
 ### Planned
 - Add devlog.md
