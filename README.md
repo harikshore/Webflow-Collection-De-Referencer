@@ -95,6 +95,10 @@ After de-referencing is complete, you can go into each collection and delete ite
 - Batch update of collection items instead of individual item update
 - Add devlog.md
 
+# Share your love
+
+- Product Hunt: https://www.producthunt.com/products/webflow-collection-de-referencer
+
 # Follow the creator
-Twitter - https://x.com/harikshore15,
-Email - harikshoresridharan@gmail.com
+- Twitter: https://x.com/harikshore15,
+- Email: harikshoresridharan@gmail.com
