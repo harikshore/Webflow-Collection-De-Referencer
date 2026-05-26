@@ -1,6 +1,6 @@
 {
   "name": "webflow-collection-dereferencer",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A script to de-reference all reference/multi-reference fields in given webflow collections.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "author": "Hari Kshore",
   "license": "MIT",
-  "private": null,
+  "private": false,
   "dependencies": {
     "node-fetch": "^3.3.2"
   }, 

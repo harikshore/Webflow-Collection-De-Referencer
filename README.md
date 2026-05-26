@@ -90,9 +90,11 @@ After de-referencing is complete, you can go into each collection and delete ite
 #### v1.0.5
 - Fixed crashes on large collections by adding automatic rate limit handling.
 
-### Planned
+#### v1.1.0
 - Handle de-referencing items in different cms locales.
 - Batch update of collection items instead of individual item update
+
+### Planned
 - Add devlog.md
 
 ## Share your love
