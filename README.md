@@ -97,7 +97,7 @@ After de-referencing is complete, you can go into each collection and delete ite
 ### Planned
 - Add devlog.md
 
-## Share your love
+## Share some love ♥️
 
 - Product Hunt: https://www.producthunt.com/products/webflow-collection-de-referencer
 
