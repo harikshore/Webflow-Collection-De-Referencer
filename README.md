@@ -79,7 +79,7 @@ It can be one or more collections.
 
 Hit Enter
 
-## Output
+### Output
 
 Sit back and relax while the script processes each collection and de-references the items in them. 
 
