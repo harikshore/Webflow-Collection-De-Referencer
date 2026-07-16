@@ -95,6 +95,7 @@ After de-referencing is complete, you can go into each collection and delete ite
 - Batch update of collection items instead of individual item updates to process faster and to avoid hitting rate-limits frequently for Starter/Basic plans on large collections.
 
 ### Planned
+- Deploy an app to Vercel Hobby for no-code designers
 - Add devlog.md
 
 ## Share some love ♥️
